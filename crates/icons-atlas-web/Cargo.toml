@@ -1,0 +1,25 @@
+[package]
+name = "icons-atlas-web"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+base64 = "0.13.0"
+bincode = "1.3.3"
+console_error_panic_hook = "0.1.7"
+getrandom = { version = "0.2.4", features = ["js"] }
+serde = "1.0.136"
+serde-wasm-bindgen = "0.4.2"
+serde_bytes = "0.11.5"
+shared = { path = "../shared" }
+tantivy = { version = "0.16.1", default-features = false, features = [
+    "lz4-compression",
+] }
+wasm-bindgen = { version = "0.2.79", features = ["serde-serialize"] }
+web-sys = { version = "0.3.56" }
+
+[dev-dependencies]
+wasm-pack = "0.10.2"
