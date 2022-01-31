@@ -99,7 +99,7 @@ pub fn query(message: String) -> JsValue {
             QueryParser::for_index(index, vec![icon_state_name_field, icon_path_field]);
 
         let query = query_parser.parse_query(&message).unwrap();
-        let search_results = searcher.search(&query, &TopDocs::with_limit(25)).unwrap();
+        let search_results = searcher.search(&query, &TopDocs::with_limit(50)).unwrap();
 
         let mut results = Vec::new();
 
