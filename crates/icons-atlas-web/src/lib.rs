@@ -1,5 +1,6 @@
 use std::cell::RefCell;
 
+use brotli::BrotliDecompress;
 use serde::{Deserialize, Serialize};
 use shared::{
     icons_data_base::{ICON_PATH_FIELD, ICON_STATE_NAME_FIELD},
@@ -34,22 +35,28 @@ pub fn setup_hook() {
 #[wasm_bindgen]
 pub fn load_icons(data: JsValue) {
     let data: serde_bytes::ByteBuf = serde_wasm_bindgen::from_value(data).unwrap();
+    let mut data = data.as_slice();
 
     ICONS.with(|icons| {
         let mut icons = icons.borrow_mut();
+        let mut decompressed = Vec::new();
+        BrotliDecompress(&mut data, &mut decompressed).unwrap();
 
-        *icons = bincode::deserialize(&data).unwrap();
+        *icons = bincode::deserialize(&decompressed).unwrap();
     });
 }
 
 #[wasm_bindgen]
 pub fn load_database(data: JsValue) {
     let data: serde_bytes::ByteBuf = serde_wasm_bindgen::from_value(data).unwrap();
+    let mut data = data.as_slice();
 
     DATABASE.with(|database| {
         let mut database = database.borrow_mut();
+        let mut decompressed = Vec::new();
+        BrotliDecompress(&mut data, &mut decompressed).unwrap();
 
-        *database = bincode::deserialize(&data).unwrap();
+        *database = bincode::deserialize(&decompressed).unwrap();
     });
 
     INDEX.with(|index| {

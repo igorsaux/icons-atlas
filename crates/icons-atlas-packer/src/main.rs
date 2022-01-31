@@ -5,6 +5,7 @@ use std::{
 };
 
 use anyhow::Result;
+use brotli::{enc::BrotliEncoderParams, BrotliCompress};
 use dmi::icon::Icon;
 use glob::glob;
 
@@ -97,13 +98,29 @@ fn pack_database_files() -> PackedFiles {
 }
 
 fn save_packed_files(files: PackedFiles, path: &Path) {
-    let data = bincode::serialize(&files).unwrap();
+    let serialized = bincode::serialize(&files).unwrap();
+    let mut data = Vec::new();
+    BrotliCompress(
+        &mut serialized.as_slice(),
+        &mut data,
+        &BrotliEncoderParams::default(),
+    )
+    .unwrap();
+
     std::fs::write(path, &data).unwrap();
 }
 
 fn save_packed_icons(icons: PackedIcons, path: &Path) {
-    let data = bincode::serialize(&icons).unwrap();
-    std::fs::write(path, &data).unwrap();
+    let serialized = bincode::serialize(&icons).unwrap();
+    let mut data = Vec::new();
+    BrotliCompress(
+        &mut serialized.as_slice(),
+        &mut data,
+        &BrotliEncoderParams::default(),
+    )
+    .unwrap();
+
+    std::fs::write(path, data).unwrap();
 }
 
 fn clear_index_files() {
