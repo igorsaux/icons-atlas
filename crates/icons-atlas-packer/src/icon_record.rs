@@ -15,22 +15,6 @@ pub struct IconRecord {
 }
 
 impl IconRecord {
-    pub fn get_icon_file_name(&self) -> String {
-        self.icon_path
-            .file_name()
-            .unwrap()
-            .to_string_lossy()
-            .to_string()
-    }
-
-    pub fn get_icon_file_stem(&self) -> String {
-        self.icon_path
-            .file_stem()
-            .unwrap()
-            .to_string_lossy()
-            .to_string()
-    }
-
     pub fn get_id(&self) -> &str {
         &self.id
     }
