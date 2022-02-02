@@ -1,5 +1,5 @@
 use std::{
-    collections::HashMap,
+    collections::BTreeMap,
     path::{Path, PathBuf},
 };
 
@@ -10,7 +10,7 @@ use image::{DynamicImage, ImageOutputFormat};
 pub struct IconRecord {
     pub icon_path: PathBuf,
     pub icon_state_name: String,
-    pub images_by_dir: HashMap<u8, Vec<DynamicImage>>,
+    pub images_by_dir: BTreeMap<u8, Vec<DynamicImage>>,
     id: String,
 }
 
@@ -72,7 +72,7 @@ impl IconRecord {
     }
 
     pub fn from_state(path: &Path, icon_state: &IconState) -> Self {
-        let mut images_by_dir: HashMap<u8, Vec<DynamicImage>> = HashMap::default();
+        let mut images_by_dir: BTreeMap<u8, Vec<DynamicImage>> = BTreeMap::default();
         let mut index = 0;
 
         for _ in 0..icon_state.frames {

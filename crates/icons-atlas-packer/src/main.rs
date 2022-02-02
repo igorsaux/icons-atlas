@@ -1,5 +1,5 @@
 use std::{
-    collections::HashMap,
+    collections::BTreeMap,
     fs::File,
     path::{Path, PathBuf},
 };
@@ -35,10 +35,10 @@ fn get_icons_from_dmi(path: &Path) -> Result<Vec<IconRecord>> {
 }
 
 fn pack_icon_records(icons: &[IconRecord]) -> PackedIcons {
-    let mut packed_icons: PackedIcons = HashMap::new();
+    let mut packed_icons: PackedIcons = BTreeMap::new();
 
     for icon in icons {
-        let mut image_by_dir: HashMap<u8, String> = HashMap::new();
+        let mut image_by_dir: BTreeMap<u8, String> = BTreeMap::new();
 
         for dir in icon.images_by_dir.keys() {
             let image_base64 = base64::encode(icon.to_bytes(*dir));
@@ -77,7 +77,7 @@ fn populate_database(icons: &[IconRecord]) {
 }
 
 fn pack_database_files() -> PackedFiles {
-    let mut files: PackedFiles = HashMap::new();
+    let mut files: PackedFiles = BTreeMap::new();
     let entries = std::fs::read_dir(INDEX_FOLDER_PATH).unwrap();
 
     for entry in entries {

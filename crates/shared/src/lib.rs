@@ -1,7 +1,7 @@
 pub mod icons_data_base;
 
-use std::{collections::HashMap, path::PathBuf};
+use std::{collections::BTreeMap, path::PathBuf};
 
-pub type PackedFiles = HashMap<PathBuf, Vec<u8>>;
-pub type PackedIcons = HashMap<String, HashMap<u8, String>>;
+pub type PackedFiles = BTreeMap<PathBuf, Vec<u8>>;
+pub type PackedIcons = BTreeMap<String, BTreeMap<u8, String>>;
 pub use icons_data_base::IconsDataBase;
