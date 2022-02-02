@@ -72,7 +72,7 @@ impl IconRecord {
             }
         }
 
-        let id = uuid::Uuid::new_v4().to_string();
+        let id = format!("{}|{}", path.display(), icon_state.name);
 
         Self {
             icon_path: path.into(),

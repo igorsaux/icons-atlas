@@ -1182,7 +1182,6 @@ dependencies = [
  "image",
  "shared",
  "tantivy",
- "uuid 0.8.2",
 ]
 
 [[package]]
