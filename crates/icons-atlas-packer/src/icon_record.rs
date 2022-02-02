@@ -4,10 +4,7 @@ use std::{
 };
 
 use dmi::icon::IconState;
-use image::{
-    gif::{GifEncoder, Repeat},
-    DynamicImage, Frame, ImageOutputFormat,
-};
+use image::{DynamicImage, ImageOutputFormat};
 
 #[derive(Clone)]
 pub struct IconRecord {
@@ -55,12 +52,18 @@ impl IconRecord {
                     .unwrap();
             }
             true => {
-                let mut encoder = GifEncoder::new(&mut content);
-                encoder.set_repeat(Repeat::Infinite).unwrap();
+                let first_image = &images[0].to_rgba8();
+                let width = first_image.width() as u16;
+                let height = first_image.height() as u16;
+                let mut encoder = gif::Encoder::new(&mut content, width, height, &[]).unwrap();
+                encoder.set_repeat(gif::Repeat::Infinite).unwrap();
 
                 for image in images {
-                    let frame = Frame::new(image.to_rgba8());
-                    encoder.encode_frame(frame).unwrap();
+                    let mut frame =
+                        gif::Frame::from_rgba(width, height, &mut image.to_rgba8().to_vec());
+                    frame.dispose = gif::DisposalMethod::Background;
+
+                    encoder.write_frame(&frame).unwrap();
                 }
             }
         }

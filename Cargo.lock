@@ -1177,6 +1177,7 @@ dependencies = [
  "bincode",
  "brotli",
  "dmi",
+ "gif",
  "glob 0.3.0",
  "image",
  "shared",
