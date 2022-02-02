@@ -1,3 +1,4 @@
+#![allow(clippy::unused_unit)]
 use std::cell::RefCell;
 
 use brotli::BrotliDecompress;
