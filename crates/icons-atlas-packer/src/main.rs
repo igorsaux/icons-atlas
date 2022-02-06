@@ -45,7 +45,7 @@ fn pack_icon_records(icons: &[IconRecord]) -> PackedIcons {
             image_by_dir.insert(*dir, image_base64);
         }
 
-        packed_icons.insert(icon.get_id().to_string(), image_by_dir);
+        packed_icons.insert(icon.id().to_string(), image_by_dir);
     }
 
     packed_icons
@@ -68,7 +68,7 @@ fn populate_database(icons: &[IconRecord]) {
             icon_path_field,
             icon.icon_path.to_string_lossy().to_string(),
         );
-        icon_document.add_text(icon_hashed_id_field, icon.get_id());
+        icon_document.add_text(icon_hashed_id_field, icon.id());
 
         writer.add_document(icon_document);
     }

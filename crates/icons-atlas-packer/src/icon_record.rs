@@ -15,7 +15,7 @@ pub struct IconRecord {
 }
 
 impl IconRecord {
-    pub fn get_id(&self) -> &str {
+    pub fn id(&self) -> &str {
         &self.id
     }
 
