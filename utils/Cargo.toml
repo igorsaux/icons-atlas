@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "crates/packer",
+    "crates/shared",
+    "crates/icons-atlas",
+    "crates/shared_derive",
+]

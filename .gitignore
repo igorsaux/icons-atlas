@@ -1,3 +1,4 @@
-/node_modules/
-/dist/
-/target/
+node_modules/
+dist/
+target/
+utils/crates/icons-atlas/pkg/

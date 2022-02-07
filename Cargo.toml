@@ -1,6 +1,0 @@
-[workspace]
-members = [
-    "crates/icons-atlas-packer",
-    "crates/shared",
-    "crates/icons-atlas-web",
-]

@@ -1,0 +1,130 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #212121;
+  color: white;
+}
+
+.GithubMark {
+  cursor: pointer;
+  opacity: 0.5;
+  float: right;
+}
+
+img.Icon {
+  image-rendering: pixelated;
+}
+
+.App {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
+
+  &.Center {
+    padding: 0;
+    height: 100%;
+    justify-content: center;
+  }
+}
+
+.Loading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
+  text-align: center;
+  transform-origin: center;
+  transition: all 0.1s;
+
+  gap: 10px;
+
+  * {
+    margin: auto;
+  }
+
+  progress {
+    width: 90%;
+    max-width: 500px;
+    height: 25px;
+  }
+}
+
+.SearchEngine {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+
+  .SearchInput {
+    position: sticky;
+    appearance: none;
+    background-color: #2e2e2e;
+    border: 2px solid transparent;
+    color: white;
+    border-radius: 4px;
+    font-size: 1.5em;
+    padding: 0.15rem;
+    text-align: center;
+    outline: 0;
+    transition: all 0.1s;
+
+    &::placeholder {
+      font-size: 0.7em;
+      color: #c9c9c9;
+    }
+
+    &:focus {
+      background-color: #3d3d3d;
+      box-shadow: inset 0 0 0 0px #c9c9c9, 0 0 0 4px rgba(50, 153, 255, 0.7);
+    }
+  }
+
+  .SearchResults {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+    min-width: fit-content;
+    gap: 10px;
+
+    @media screen and (min-width: 900px) {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+    .SearchEntry {
+      padding: 0.5rem;
+      border-radius: 4px;
+      background-color: #2e2e2e;
+      list-style: none;
+
+      hr {
+        border: none;
+        border-top: 2px solid #212121;
+        border-radius: 4px;
+      }
+
+      .Icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        width: 100%;
+
+        .Icon {
+          background-image: url('/grid.png');
+          background-size: 8px;
+          margin: auto;
+          min-width: 64px;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
