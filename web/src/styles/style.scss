@@ -12,6 +12,12 @@ body {
   cursor: pointer;
   opacity: 0.5;
   float: right;
+  transition: opacity 200ms;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
 }
 
 img.Icon {
