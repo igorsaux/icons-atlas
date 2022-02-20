@@ -12,6 +12,7 @@ export default function Search(props: SearchProps) {
       onInput={event => onQueryChange(event.target?.value)}
       type='text'
       placeholder='Search by state name'
+      autoComplete='on'
       class='SearchInput'
     />
   )
