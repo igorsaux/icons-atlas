@@ -21,7 +21,7 @@ export default function QueryResultView(props: QueryResultViewProps) {
         title='Check on GitHub'
         className='GithubMark'
         target='_blank'
-        href={getUrlToIconOnGithub(queryResult.fields.icon_path_field)}
+        href={getUrlToIconOnGithub(queryResult.fields.path)}
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -37,13 +37,13 @@ export default function QueryResultView(props: QueryResultViewProps) {
         </svg>
       </a>
       <div className='IconState'>
-        <b>State:</b> {queryResult.fields.icon_state_name}
+        <b>State:</b> {queryResult.fields.state}
       </div>
       <div className='IconPath'>
-        <b>Path:</b> {queryResult.fields.icon_path_field}
+        <b>Path:</b> {queryResult.fields.path}
       </div>
       <hr />
-      <QueryIconView id={queryResult.fields.icon_hashed_id} />
+      <QueryIconView id={queryResult.fields.id} />
     </div>
   )
 }

@@ -3,9 +3,9 @@ import { pick_icon, query } from './pkg'
 export type QueryResult = {
   score: number
   fields: {
-    icon_path_field: string
-    icon_state_name: string
-    icon_hashed_id: string
+    path: string
+    state: string
+    id: string
   }
 }
 
@@ -15,9 +15,9 @@ export function makeQuery(message: string, limit: number): QueryResult[] {
   return queryResult.map(result => {
     const fields = JSON.parse(result.fields)
 
-    fields.icon_path_field = fields.icon_path[0]
-    fields.icon_state_name = fields.icon_state_name[0]
-    fields.icon_hashed_id = fields.icon_hashed_id[0]
+    fields.path = fields.path[0]
+    fields.state = fields.state[0]
+    fields.id = fields.id[0]
 
     return {
       ...result,

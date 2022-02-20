@@ -14,9 +14,9 @@ use tantivy::{
 
 use crate::PackedFiles;
 
-const ICON_STATE_NAME_FIELD: &str = "icon_state_name";
-const ICON_PATH_FIELD: &str = "icon_path";
-const ICON_HASHED_ID_FIELD: &str = "icon_hashed_id";
+const ICON_STATE_NAME_FIELD: &str = "state";
+const ICON_PATH_FIELD: &str = "path";
+const ICON_HASHED_ID_FIELD: &str = "id";
 
 fn create_database_schema() -> Schema {
     let mut schema_builder = SchemaBuilder::new();
