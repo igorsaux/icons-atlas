@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
+
+  &.Center {
+    padding: 0;
+    height: 100%;
+    justify-content: center;
+  }
+}

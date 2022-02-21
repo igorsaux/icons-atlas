@@ -1,0 +1,32 @@
+.SearchEntry {
+  outline: #010101 solid 1px;
+  border: 1px solid #535353;
+  border-radius: 10px;
+  background-color: #282828;
+  list-style: none;
+
+  .GithubMark {
+    cursor: pointer;
+    opacity: 0.5;
+    float: right;
+    transition: opacity 200ms;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  .Content {
+    background-color: #373738;
+    padding: 0.5rem;
+    border-radius: 10px 10px 0 0;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #404041;
+    border-radius: 4px;
+    margin: 0;
+  }
+}

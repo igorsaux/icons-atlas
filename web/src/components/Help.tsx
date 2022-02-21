@@ -1,5 +1,6 @@
+import '../styles/Help.scss'
 import Tippy from '@tippyjs/react'
-import { Boolean, Code, CodeInline, Keyword, Operator, String } from './Text'
+import { Boolean, Code, CodeInline, Keyword, Operator, String } from './Code'
 
 function HelpContent() {
   return (

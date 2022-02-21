@@ -1,8 +1,9 @@
+import '../styles/SearchEntry.scss'
 import { QueryResult } from '../api'
 import { GITHUB_REPOSITORY_BASE_URL } from '../constants'
-import QueryIconView from './QueryIconView'
+import ByondIcon from './ByondIcon'
 
-type QueryResultViewProps = {
+type SearchEntryProps = {
   queryResult: QueryResult
 }
 
@@ -12,7 +13,7 @@ function getUrlToIconOnGithub(iconPath: string) {
   return `${GITHUB_REPOSITORY_BASE_URL}/${normalized}`
 }
 
-export default function QueryResultView(props: QueryResultViewProps) {
+export default function SearchEntry(props: SearchEntryProps) {
   const { queryResult } = props
 
   return (
@@ -45,7 +46,7 @@ export default function QueryResultView(props: QueryResultViewProps) {
         </div>
       </div>
       <hr />
-      <QueryIconView id={queryResult.fields.id} />
+      <ByondIcon id={queryResult.fields.id} />
     </div>
   )
 }

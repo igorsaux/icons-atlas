@@ -1,10 +1,11 @@
+import '../styles/ByondIcon.scss'
 import { pickIcon } from '../api'
 
-type QueryIconViewProps = {
+type ByondIconProps = {
   id: string
 }
 
-export default function QueryIconView(props: QueryIconViewProps) {
+export default function ByondIcon(props: ByondIconProps) {
   const iconsByDir = pickIcon(props.id)
   const icons = []
 
@@ -13,9 +14,9 @@ export default function QueryIconView(props: QueryIconViewProps) {
   }
 
   return (
-    <div className='Icons'>
+    <div className='ByondIcon'>
       {icons.map(icon => (
-        <img class='Icon' src={`data:image/png;base64,${icon}`} />
+        <img class='Dir' src={`data:image/png;base64,${icon}`} />
       ))}
     </div>
   )

@@ -1,9 +1,11 @@
-type SearchProps = {
+import '../styles/SearchInput.scss'
+
+type SearchInputProps = {
   onQueryChange: (newQuery: string) => void
   isInvalid: boolean
 }
 
-export default function Search(props: SearchProps) {
+export default function SearchInput(props: SearchInputProps) {
   const { onQueryChange, isInvalid } = props
 
   return (

@@ -1,0 +1,22 @@
+.Loading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
+  text-align: center;
+  transform-origin: center;
+  transition: all 0.1s;
+
+  gap: 10px;
+
+  * {
+    margin: auto;
+  }
+
+  progress {
+    width: 90%;
+    max-width: 500px;
+    height: 25px;
+  }
+}

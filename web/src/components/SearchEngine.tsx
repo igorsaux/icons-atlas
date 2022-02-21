@@ -1,6 +1,7 @@
-import Search from './Search'
+import '../styles/SearchEngine.scss'
+import SearchInput from './SearchInput'
 import { useCallback, useState } from 'preact/hooks'
-import QueryResultView from './QueryResultView'
+import SearchEntry from './SearchEntry'
 import { makeQuery, QueryResult } from '../api'
 import Help from './Help'
 
@@ -36,12 +37,12 @@ export default function SearchEngine() {
   return (
     <div className='SearchEngine'>
       <div className='TopBar'>
-        <Search onQueryChange={updateQuery} isInvalid={isQueryInvalid} />
+        <SearchInput onQueryChange={updateQuery} isInvalid={isQueryInvalid} />
         <Help />
       </div>
       <div class='SearchResults'>
         {queryResults.sort(sortQueryResults).map(result => {
-          return <QueryResultView queryResult={result} />
+          return <SearchEntry queryResult={result} />
         })}
       </div>
     </div>

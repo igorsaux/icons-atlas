@@ -1,0 +1,32 @@
+.SearchInput {
+  &:focus.Invalid,
+  &.Invalid {
+    outline: #ff375f solid 4px;
+  }
+
+  position: sticky;
+  appearance: none;
+  width: 100%;
+
+  @media screen and (min-width: 900px) {
+    width: 60ch;
+  }
+
+  background-color: #343434;
+  border: 1px solid #4c4c4c;
+  color: white;
+  border-radius: 6px;
+  font-size: 1.25em;
+  padding: 0.15rem;
+  text-align: center;
+  outline: 0;
+  transition: all 0.2s;
+
+  &::placeholder {
+    color: #676767;
+  }
+
+  &:focus {
+    outline: #0a84ff solid 4px;
+  }
+}

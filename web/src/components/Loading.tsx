@@ -1,3 +1,4 @@
+import '../styles/Loading.scss'
 import { useEffect } from 'preact/hooks'
 import { GITHUB_BASE_URL } from '../constants'
 import useFetch from '../hooks/useFetch'

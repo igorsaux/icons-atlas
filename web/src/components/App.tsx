@@ -1,3 +1,4 @@
+import '../styles/App.scss'
 import { useCallback, useState } from 'preact/hooks'
 import Loading from './Loading'
 import SearchEngine from './SearchEngine'

@@ -1,0 +1,15 @@
+.ByondIcon {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  .Dir {
+    background-image: url('/grid.png');
+    background-size: 8px;
+    margin: auto;
+    min-width: 64px;
+    max-width: 100%;
+    image-rendering: pixelated;
+  }
+}

@@ -1,0 +1,48 @@
+h3 {
+  color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: #0a84ff;
+}
+
+@mixin CodeBlock {
+  font-family: monospace;
+  margin: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.1rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  background-color: #1f1f24;
+  border-radius: 6px;
+  border: 1px solid #565656;
+}
+
+.Code {
+  @include CodeBlock;
+}
+
+.CodeInline {
+  @include CodeBlock;
+  display: inline;
+}
+
+.String {
+  color: #fc6a5d;
+}
+
+.Boolean {
+  color: #d6c455;
+}
+
+.Operator {
+  color: #a167e6;
+}
+
+.Keyword {
+  color: #ff7ab2;
+  font-weight: bold;
+}
