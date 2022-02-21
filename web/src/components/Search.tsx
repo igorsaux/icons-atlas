@@ -11,7 +11,7 @@ export default function Search(props: SearchProps) {
     <input
       onInput={event => onQueryChange(event.target?.value)}
       type='text'
-      placeholder='Search by state name'
+      placeholder='Search'
       autoComplete='on'
       class='SearchInput'
     />

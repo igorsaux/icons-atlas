@@ -28,15 +28,11 @@ export default function SearchEngine() {
   return (
     <div className='SearchEngine'>
       <Search onQueryChange={updateQuery} />
-      <ul class='SearchResults'>
+      <div class='SearchResults'>
         {queryResults.sort(sortQueryResults).map(result => {
-          return (
-            <li class='SearchEntry'>
-              <QueryResultView queryResult={result} />
-            </li>
-          )
+          return <QueryResultView queryResult={result} />
         })}
-      </ul>
+      </div>
     </div>
   )
 }

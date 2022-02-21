@@ -4,7 +4,7 @@ body {
   height: 100%;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #212121;
+  background-color: #1d1d1d;
   color: white;
   background-image: url('/plus.svg');
   background-position: 5px 5px;
@@ -69,28 +69,33 @@ img.Icon {
   flex-direction: column;
   align-items: center;
   align-content: center;
+  gap: 10px;
 
   .SearchInput {
     position: sticky;
     appearance: none;
-    background-color: #2e2e2e;
-    border: 2px solid transparent;
+    width: 100%;
+
+    @media screen and (min-width: 900px) {
+      width: 60ch;
+    }
+
+    background-color: #343434;
+    border: 2px solid #4c4c4c;
     color: white;
-    border-radius: 4px;
-    font-size: 1.5em;
+    border-radius: 6px;
+    font-size: 1.25em;
     padding: 0.15rem;
     text-align: center;
     outline: 0;
-    transition: all 0.1s;
+    transition: all 0.2s;
 
     &::placeholder {
-      font-size: 0.7em;
-      color: #c9c9c9;
+      color: #676767;
     }
 
     &:focus {
-      background-color: #3d3d3d;
-      box-shadow: inset 0 0 0 0px #c9c9c9, 0 0 0 4px rgba(50, 153, 255, 0.7);
+      box-shadow: inset 0 0 0 0px #c9c9c9, 0 0 0 4px #0a84ff;
     }
   }
 
@@ -108,22 +113,30 @@ img.Icon {
     }
 
     .SearchEntry {
-      padding: 0.5rem;
-      border-radius: 4px;
-      background-color: #2e2e2e;
+      outline: #010101 solid 1px;
+      border: 2px solid #535353;
+      border-radius: 10px;
+      background-color: #282828;
       list-style: none;
+
+      .Content {
+        background-color: #373738;
+        padding: 0.5rem;
+        border-radius: 10px 10px 0 0;
+      }
 
       hr {
         border: none;
-        border-top: 2px solid #212121;
+        border-top: 2px solid #404041;
         border-radius: 4px;
+        margin: 0;
       }
 
       .Icons {
+        padding: 0.5rem;
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
-        width: 100%;
 
         .Icon {
           background-image: url('/grid.png');
