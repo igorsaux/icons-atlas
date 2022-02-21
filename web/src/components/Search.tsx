@@ -1,9 +1,10 @@
 type SearchProps = {
   onQueryChange: (newQuery: string) => void
+  isInvalid: boolean
 }
 
 export default function Search(props: SearchProps) {
-  const { onQueryChange } = props
+  const { onQueryChange, isInvalid } = props
 
   return (
     <input
@@ -11,7 +12,7 @@ export default function Search(props: SearchProps) {
       type='text'
       placeholder='Search'
       autoComplete='on'
-      class='SearchInput'
+      class={`SearchInput ${isInvalid ? 'Invalid' : ''}`}
     />
   )
 }

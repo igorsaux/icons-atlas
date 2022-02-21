@@ -15,13 +15,20 @@ function sortQueryResults(a: QueryResult, b: QueryResult) {
 }
 
 export default function SearchEngine() {
+  const [isQueryInvalid, setIsQueryInvalid] = useState(false)
   const [queryResults, setQueryResults] = useState<QueryResult[]>([])
   const [query, setQuery] = useState('')
 
   const updateQuery = useCallback(
     (newQuery: string) => {
       setQuery(newQuery)
-      setQueryResults(makeQuery(newQuery, 500))
+
+      try {
+        setQueryResults(makeQuery(newQuery, 500))
+        setIsQueryInvalid(false)
+      } catch (error) {
+        setIsQueryInvalid(true)
+      }
     },
     [query]
   )
@@ -29,7 +36,7 @@ export default function SearchEngine() {
   return (
     <div className='SearchEngine'>
       <div className='TopBar'>
-        <Search onQueryChange={updateQuery} />
+        <Search onQueryChange={updateQuery} isInvalid={isQueryInvalid} />
         <Help />
       </div>
       <div class='SearchResults'>
