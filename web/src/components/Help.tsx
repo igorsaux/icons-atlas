@@ -1,6 +1,4 @@
 import Tippy from '@tippyjs/react'
-import 'tippy.js/dist/tippy.css'
-import 'tippy.js/dist/border.css'
 import { Boolean, Code, CodeInline, Keyword, Operator, String } from './Text'
 
 function HelpContent() {
@@ -57,7 +55,10 @@ function HelpContent() {
         <String>"actions.dmi"</String>
       </Code>
       See{' '}
-      <a href='https://docs.rs/tantivy/latest/tantivy/query/struct.QueryParser.html'>
+      <a
+        target='_blank'
+        href='https://docs.rs/tantivy/latest/tantivy/query/struct.QueryParser.html'
+      >
         details
       </a>
       .

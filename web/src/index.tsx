@@ -1,3 +1,5 @@
+import 'tippy.js/dist/tippy.css'
+import 'tippy.js/dist/border.css'
 import { render } from 'preact'
 import App from './components/App'
 import init, { setup_hook } from './pkg'
