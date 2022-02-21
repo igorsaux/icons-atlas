@@ -1,5 +1,3 @@
-import { StateUpdater } from 'preact/hooks'
-
 type SearchProps = {
   onQueryChange: (newQuery: string) => void
 }

@@ -2,6 +2,7 @@ import Search from './Search'
 import { useCallback, useState } from 'preact/hooks'
 import QueryResultView from './QueryResultView'
 import { makeQuery, QueryResult } from '../api'
+import Help from './Help'
 
 function sortQueryResults(a: QueryResult, b: QueryResult) {
   if (a.score > b.score) {
@@ -27,7 +28,10 @@ export default function SearchEngine() {
 
   return (
     <div className='SearchEngine'>
-      <Search onQueryChange={updateQuery} />
+      <div className='TopBar'>
+        <Search onQueryChange={updateQuery} />
+        <Help />
+      </div>
       <div class='SearchResults'>
         {queryResults.sort(sortQueryResults).map(result => {
           return <QueryResultView queryResult={result} />

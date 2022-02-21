@@ -10,6 +10,14 @@ body {
   background-position: 5px 5px;
 }
 
+.tippy-box[data-theme~='dark'] {
+  color: #ffffffb3;
+  background-color: #4a4a4aa8;
+  backdrop-filter: blur(6px);
+  border: 1px solid #636363;
+  outline: #000000 solid 1px;
+}
+
 .GithubMark {
   cursor: pointer;
   opacity: 0.5;
@@ -27,7 +35,6 @@ img.Icon {
 }
 
 .App {
-  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -63,39 +70,123 @@ img.Icon {
   }
 }
 
+h3 {
+  color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: #0a84ff;
+}
+
+@mixin CodeBlock {
+  font-family: monospace;
+  margin: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.1rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  background-color: #1f1f24;
+  border-radius: 6px;
+  border: 1px solid #565656;
+}
+
+.Code {
+  @include CodeBlock;
+}
+
+.CodeInline {
+  @include CodeBlock;
+  display: inline;
+}
+
+.String {
+  color: #fc6a5d;
+}
+
+.Boolean {
+  color: #d6c455;
+}
+
+.Operator {
+  color: #a167e6;
+}
+
+.Keyword {
+  color: #ff7ab2;
+  font-weight: bold;
+}
+
 .SearchEngine {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   align-content: center;
   gap: 10px;
 
-  .SearchInput {
+  .TopBar {
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      backdrop-filter: blur(6px);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
     position: sticky;
-    appearance: none;
-    width: 100%;
+    top: 0px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #28282875;
+    border-bottom: 1px solid #3d3d3d;
+    z-index: 1000;
 
-    @media screen and (min-width: 900px) {
-      width: 60ch;
+    .Help {
+      background-color: #585858;
+      border: 1px solid #727272;
+      border-radius: 50px;
+      padding-top: 0.3rem;
+      padding-bottom: 0.3rem;
+      padding-left: 0.6rem;
+      padding-right: 0.6rem;
+      user-select: none;
+      cursor: default;
     }
 
-    background-color: #343434;
-    border: 2px solid #4c4c4c;
-    color: white;
-    border-radius: 6px;
-    font-size: 1.25em;
-    padding: 0.15rem;
-    text-align: center;
-    outline: 0;
-    transition: all 0.2s;
+    .SearchInput {
+      position: sticky;
+      appearance: none;
+      width: 100%;
 
-    &::placeholder {
-      color: #676767;
-    }
+      @media screen and (min-width: 900px) {
+        width: 60ch;
+      }
 
-    &:focus {
-      box-shadow: inset 0 0 0 0px #c9c9c9, 0 0 0 4px #0a84ff;
+      background-color: #343434;
+      border: 1px solid #4c4c4c;
+      color: white;
+      border-radius: 6px;
+      font-size: 1.25em;
+      padding: 0.15rem;
+      text-align: center;
+      outline: 0;
+      transition: all 0.2s;
+
+      &::placeholder {
+        color: #676767;
+      }
+
+      &:focus {
+        box-shadow: inset 0 0 0 0px #c9c9c9, 0 0 0 4px #0a84ff;
+      }
     }
   }
 
@@ -103,7 +194,7 @@ img.Icon {
     display: flex;
     flex-direction: column;
 
-    padding: 0;
+    padding: 0.5rem;
     min-width: fit-content;
     gap: 10px;
 
@@ -114,7 +205,7 @@ img.Icon {
 
     .SearchEntry {
       outline: #010101 solid 1px;
-      border: 2px solid #535353;
+      border: 1px solid #535353;
       border-radius: 10px;
       background-color: #282828;
       list-style: none;
@@ -127,7 +218,7 @@ img.Icon {
 
       hr {
         border: none;
-        border-top: 2px solid #404041;
+        border-top: 1px solid #404041;
         border-radius: 4px;
         margin: 0;
       }
