@@ -1,3 +1,4 @@
+import 'normalize.css'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/dist/border.css'
 import './styles/Tooltip.scss'
