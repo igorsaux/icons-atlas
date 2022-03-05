@@ -3,6 +3,9 @@ name = "icons-atlas"
 version = "0.1.0"
 edition = "2021"
 
+[profile.release]
+lto = true
+
 [lib]
 crate-type = ["cdylib"]
 
@@ -18,6 +21,7 @@ serde_bytes = "0.11.5"
 shared = { path = "../shared" }
 tantivy = { version = "0.16.1", default-features = false, features = [
     "lz4-compression",
+    "wasm-bindgen",
 ] }
 wasm-bindgen = { version = "0.2.79", features = ["serde-serialize"] }
 web-sys = { version = "0.3.56" }
