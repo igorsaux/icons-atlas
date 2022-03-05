@@ -1,6 +1,7 @@
 import 'normalize.css'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/dist/border.css'
+import 'tippy.js/animations/scale.css'
 import './styles/Tooltip.scss'
 import { render } from 'preact'
 import App from './components/App'

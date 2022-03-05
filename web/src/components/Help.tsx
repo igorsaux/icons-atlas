@@ -75,6 +75,7 @@ export default function Help() {
       interactive={true}
       interactiveBorder={20}
       theme='dark'
+      animation='scale'
     >
       <HelpIcon />
     </Tippy>
