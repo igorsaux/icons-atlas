@@ -23,6 +23,7 @@
   "homepage": "https://github.com/igorsaux/icons-atlas#readme",
   "dependencies": {
     "@tippyjs/react": "^4.2.6",
+    "flag-icons": "^6.1.1",
     "normalize.css": "^8.0.1",
     "preact": "^10.6.5"
   },
