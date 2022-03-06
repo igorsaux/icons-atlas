@@ -1,3 +1,4 @@
+import useTranslation from '../hooks/useTranslation'
 import '../styles/SearchInput.scss'
 
 type SearchInputProps = {
@@ -6,13 +7,14 @@ type SearchInputProps = {
 }
 
 export default function SearchInput(props: SearchInputProps) {
+  const $ = useTranslation()
   const { onQueryChange, isInvalid } = props
 
   return (
     <input
       onInput={event => onQueryChange(event.target?.value)}
       type='text'
-      placeholder='Search'
+      placeholder={$('$SEARCH$')}
       autoComplete='on'
       class={`SearchInput ${isInvalid ? 'Invalid' : ''}`}
     />

@@ -4,6 +4,7 @@ import { useCallback, useState } from 'preact/hooks'
 import SearchEntry from './SearchEntry'
 import { makeQuery, QueryResult } from '../api'
 import Help from './Help'
+import LanguageSelector from './LanguageSelector'
 
 function sortQueryResults(a: QueryResult, b: QueryResult) {
   if (a.score > b.score) {
@@ -37,6 +38,7 @@ export default function SearchEngine() {
   return (
     <div className='SearchEngine'>
       <div className='TopBar'>
+        <LanguageSelector />
         <SearchInput onQueryChange={updateQuery} isInvalid={isQueryInvalid} />
         <Help />
       </div>

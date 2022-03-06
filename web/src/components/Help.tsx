@@ -2,31 +2,34 @@ import '../styles/Help.scss'
 import Tippy from '@tippyjs/react'
 import { Boolean, Code, CodeInline, Keyword, Operator, String } from './Code'
 import { HelpIcon } from './icons'
+import useTranslation from '../hooks/useTranslation'
 
 function HelpContent() {
+  const $ = useTranslation()
+
   return (
     <>
-      <h3>Prefixes</h3>
-      Use prefix{' '}
+      <h3>{$('$HELP_PREFIXES_TITLE$')}</h3>
+      {$('$HELP_PREFIXES_BODY1$')}{' '}
       <CodeInline>
         <Keyword>state:</Keyword>
       </CodeInline>{' '}
-      to search across icon state names:
+      {$('$HELP_PREFIXES_BODY2$')}
       <Code>
         <Keyword>state:</Keyword>
         <String>"engine"</String>
       </Code>
-      Use prefix{' '}
+      {$('$HELP_PREFIXES_BODY1$')}{' '}
       <CodeInline>
         <Keyword>path:</Keyword>
       </CodeInline>{' '}
-      to search across icon paths:
+      {$('$HELP_PREFIXES_BODY3$')}
       <Code>
         <Keyword>path:</Keyword>
         <String>"actions.dmi"</String>
       </Code>
-      <h3>Booleans</h3>
-      Use boolean operators{' '}
+      <h3>{$('$HELP_BOOLEANS_TITLE$')}</h3>
+      {$('$HELP_BOOLEANS_BODY1$')}{' '}
       <CodeInline>
         <Boolean>OR</Boolean>
       </CodeInline>
@@ -34,34 +37,34 @@ function HelpContent() {
       <CodeInline>
         <Boolean>AND</Boolean>
       </CodeInline>{' '}
-      to combine queries:
+      {$('$HELP_BOOLEANS_BODY2$')}:
       <Code>
         <Keyword>state:</Keyword>
         <String>"emp"</String> <Boolean>AND</Boolean> <Keyword>path:</Keyword>
         <String>"actions.dmi"</String>
       </Code>
-      <h3>Misc</h3>
-      Also, you can use{' '}
+      <h3>{$('$HELP_MISC_TITLE$')}</h3>
+      {$('$HELP_MISC_BODY1$')}{' '}
       <CodeInline>
         <Operator>-</Operator>
       </CodeInline>{' '}
-      to exclude a query and{' '}
+      {$('$HELP_MISC_BODY2$')}{' '}
       <CodeInline>
         <Operator>+</Operator>
       </CodeInline>{' '}
-      to require some query:
+      {$('$HELP_MISC_BODY3$')}
       <Code>
         <Keyword>state:</Keyword>
         <String>"emp"</String> <Boolean>AND</Boolean> <Operator>-</Operator>
         <Keyword>path:</Keyword>
         <String>"actions.dmi"</String>
       </Code>
-      See{' '}
+      {$('$HELP_SEE$')}{' '}
       <a
         target='_blank'
         href='https://docs.rs/tantivy/latest/tantivy/query/struct.QueryParser.html'
       >
-        details
+        {$('$HELP_DETAILS$')}
       </a>
       .
     </>
