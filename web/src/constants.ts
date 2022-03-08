@@ -1,8 +1,13 @@
+export const REPOSITORY_URL = 'https://github.com/igorsaux/icons-atlas'
+
 export const GITHUB_BASE_URL =
   'https://raw.githubusercontent.com/igorsaux/icons-atlas/master'
 
-export const GITHUB_REPOSITORY_BASE_URL =
-  'https://github.com/ChaoticOnyx/OnyxBay/blob/dev'
+export const TARGET_REPOSITORY = 'https://github.com/ChaoticOnyx/OnyxBay'
+
+export const TARGET_REPOSITORY_COMMIT = `${TARGET_REPOSITORY}/commit`
+
+export const TARGET_REPOSITORY_MAIN_BRANCH = `${TARGET_REPOSITORY}/blob/dev`
 
 export const LANGUAGES = [
   {

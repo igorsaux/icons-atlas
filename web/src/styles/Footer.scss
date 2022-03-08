@@ -1,0 +1,23 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: #28282875;
+  border-top: 1px solid #3d3d3d;
+  padding: 0.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    backdrop-filter: blur(6px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

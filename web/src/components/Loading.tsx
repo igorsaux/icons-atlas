@@ -68,7 +68,7 @@ export default function Loading(props: LoadingProps) {
   return (
     <div className='Loading'>
       <h2>{$('$LOADING_RESOURCES$')}</h2>
-      <pre>{loadingState}</pre>
+      <span>{loadingState}</span>
       <progress max={100} value={progress} />
     </div>
   )

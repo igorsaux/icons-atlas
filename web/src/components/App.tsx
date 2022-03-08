@@ -5,7 +5,7 @@ import SearchEngine from './SearchEngine'
 import { LanguageContext } from '../context'
 import useCookie from '../hooks/useCookie'
 import { getPrefableLanguage } from '../utils'
-import useTranslation from '../hooks/useTranslation'
+import Footer from './Footer'
 
 export default function App() {
   const [language, setLanguage] = useCookie('lang', getPrefableLanguage().code)
@@ -23,6 +23,7 @@ export default function App() {
     >
       <div className={`App ${isLoaded ? '' : 'Center'}`}>
         {isLoaded ? <SearchEngine /> : <Loading onLoaded={onLoaded} />}
+        <Footer />
       </div>
     </LanguageContext.Provider>
   )

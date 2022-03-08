@@ -1,9 +1,11 @@
+import '../../styles/GitHubIcon.scss'
 import { Ref } from 'preact'
 import { forwardRef } from 'preact/compat'
 
 const GitHubIcon = forwardRef((props, ref: Ref<SVGSVGElement>) => {
   return (
     <svg
+      class='GitHubIcon'
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 16 16'
       width='18'

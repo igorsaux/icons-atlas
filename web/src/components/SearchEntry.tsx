@@ -1,6 +1,6 @@
 import '../styles/SearchEntry.scss'
 import { QueryResult } from '../api'
-import { GITHUB_REPOSITORY_BASE_URL } from '../constants'
+import { TARGET_REPOSITORY_MAIN_BRANCH } from '../constants'
 import ByondIcon from './ByondIcon'
 import useTranslation from '../hooks/useTranslation'
 import { GitHubIcon } from './icons'
@@ -12,7 +12,7 @@ type SearchEntryProps = {
 function getUrlToIconOnGithub(iconPath: string) {
   const normalized = iconPath.replaceAll('\\', '/')
 
-  return `${GITHUB_REPOSITORY_BASE_URL}/${normalized}`
+  return `${TARGET_REPOSITORY_MAIN_BRANCH}/${normalized}`
 }
 
 export default function SearchEntry(props: SearchEntryProps) {

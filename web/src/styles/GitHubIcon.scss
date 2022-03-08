@@ -1,0 +1,10 @@
+.GitHubIcon {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 200ms;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}

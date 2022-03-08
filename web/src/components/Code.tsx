@@ -42,5 +42,5 @@ export function Code(props: CodeProps) {
 }
 
 export function CodeInline(props: CodeProps) {
-  return <pre className='CodeInline'>{props.children}</pre>
+  return <code className='Code'>{props.children}</code>
 }

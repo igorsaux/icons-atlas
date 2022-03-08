@@ -5,6 +5,8 @@ import SearchEntry from './SearchEntry'
 import { makeQuery, QueryResult } from '../api'
 import Help from './Help'
 import LanguageSelector from './LanguageSelector'
+import useTranslation from '../hooks/useTranslation'
+import { GitHubIcon } from './icons'
 
 function sortQueryResults(a: QueryResult, b: QueryResult) {
   if (a.score > b.score) {

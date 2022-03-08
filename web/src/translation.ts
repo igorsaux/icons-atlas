@@ -26,7 +26,8 @@ export default {
     $HELP_MISC_BODY2$: 'to exclude a query and',
     $HELP_MISC_BODY3$: 'to require some query:',
     $HELP_SEE$: 'See',
-    $HELP_DETAILS$: 'details'
+    $HELP_DETAILS$: 'details',
+    $LAST_COMMIT_HASH$: 'Commit:'
   },
   ru: {
     $LANGUAGE_EN$: 'английский',
@@ -49,6 +50,7 @@ export default {
     $HELP_MISC_BODY2$: 'чтобы исключить запрос, и',
     $HELP_MISC_BODY3$: 'чтобы сделать запрос обязательным:',
     $HELP_SEE$: 'Смотрите',
-    $HELP_DETAILS$: 'подробнее'
+    $HELP_DETAILS$: 'подробнее',
+    $LAST_COMMIT_HASH$: 'Коммит:'
   }
 } as Translation
