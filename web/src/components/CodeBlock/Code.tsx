@@ -1,4 +1,4 @@
-import '../styles/Code.scss'
+import './Code.scss'
 import { ComponentChildren } from 'preact'
 
 type KeywordProps = {

@@ -1,9 +1,9 @@
-import '../styles/SearchEntry.scss'
-import { QueryResult } from '../api'
-import { TARGET_REPOSITORY_MAIN_BRANCH } from '../constants'
-import ByondIcon from './ByondIcon'
-import useTranslation from '../hooks/useTranslation'
-import { GitHubIcon } from './icons'
+import './SearchEntry.scss'
+import { QueryResult } from '../../api'
+import { TARGET_REPOSITORY_MAIN_BRANCH } from '../../constants'
+import ByondIcon from '../ByondIcon'
+import useTranslation from '../../hooks/useTranslation'
+import { GitHubIcon } from '../../icons'
 
 type SearchEntryProps = {
   queryResult: QueryResult

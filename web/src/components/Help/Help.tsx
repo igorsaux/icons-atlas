@@ -1,8 +1,10 @@
-import '../styles/Help.scss'
+import './Help.scss'
 import Tippy from '@tippyjs/react'
-import { Boolean, Code, CodeInline, Keyword, Operator, String } from './Code'
-import { HelpIcon } from './icons'
-import useTranslation from '../hooks/useTranslation'
+import { CodeBlock } from '@components'
+import { HelpIcon } from '@icons'
+import { useTranslation } from '@hooks'
+
+const { CodeInline, Keyword, Code, String, Boolean, Operator } = CodeBlock
 
 function HelpContent() {
   const $ = useTranslation()

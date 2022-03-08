@@ -1,5 +1,5 @@
-import '../styles/ByondIcon.scss'
-import { pickIcon } from '../api'
+import './ByondIcon.scss'
+import { pickIcon } from '@/api'
 
 type ByondIconProps = {
   id: string

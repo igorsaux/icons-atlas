@@ -1,7 +1,7 @@
-import '../styles/Footer.scss'
-import { GITHUB_BASE_URL, REPOSITORY_URL } from '../constants'
-import CommitHash from './CommitHash'
-import { GitHubIcon } from './icons'
+import './Footer.scss'
+import { GITHUB_BASE_URL, REPOSITORY_URL } from '@/constants'
+import { CommitHash } from '@components'
+import { GitHubIcon } from '@icons'
 
 export default function Footer() {
   return (

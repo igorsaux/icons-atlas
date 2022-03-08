@@ -1,4 +1,4 @@
-import '../../styles/GitHubIcon.scss'
+import './GitHubIcon.scss'
 import { Ref } from 'preact'
 import { forwardRef } from 'preact/compat'
 

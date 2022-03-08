@@ -1,11 +1,10 @@
-import '../styles/App.scss'
+import './App.scss'
 import { useCallback, useState } from 'preact/hooks'
-import Loading from './Loading'
-import SearchEngine from './SearchEngine'
-import { LanguageContext } from '../context'
-import useCookie from '../hooks/useCookie'
-import { getPrefableLanguage } from '../utils'
-import Footer from './Footer'
+import { Loading, SearchEngine } from '@components'
+import { LanguageContext } from '@context'
+import { useCookie } from '@hooks'
+import { getPrefableLanguage } from '@/utils'
+import Footer from '../Footer'
 
 export default function App() {
   const [language, setLanguage] = useCookie('lang', getPrefableLanguage().code)

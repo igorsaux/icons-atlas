@@ -1,10 +1,10 @@
-import '../styles/LanguageSelector.scss'
+import './LanguageSelector.scss'
 import Tippy from '@tippyjs/react'
-import { LANGUAGES } from '../constants'
-import { FlagIcon } from './icons'
-import useTranslation from '../hooks/useTranslation'
+import { LANGUAGES } from '@/constants'
+import { FlagIcon } from '@icons'
+import { useTranslation } from '@hooks'
 import { useContext } from 'preact/hooks'
-import { LanguageContext } from '../context'
+import { LanguageContext } from '@context'
 
 function LanguagesMenu() {
   const { setCode } = useContext(LanguageContext)

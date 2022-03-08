@@ -1,9 +1,9 @@
-import '../styles/Loading.scss'
+import './Loading.scss'
 import { useEffect } from 'preact/hooks'
-import { GITHUB_BASE_URL } from '../constants'
-import useFetch from '../hooks/useFetch'
-import { load_database, load_icons } from '../pkg'
-import useTranslation from '../hooks/useTranslation'
+import { GITHUB_BASE_URL } from '@/constants'
+import { useFetch } from '@hooks'
+import { load_database, load_icons } from '@/pkg/icons_atlas'
+import { useTranslation } from '@hooks'
 
 type LoadingProps = {
   onLoaded: () => void

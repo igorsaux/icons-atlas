@@ -1,5 +1,5 @@
-import useTranslation from '../hooks/useTranslation'
-import '../styles/SearchInput.scss'
+import useTranslation from '../../hooks/useTranslation'
+import './SearchInput.scss'
 
 type SearchInputProps = {
   onQueryChange: (newQuery: string) => void
