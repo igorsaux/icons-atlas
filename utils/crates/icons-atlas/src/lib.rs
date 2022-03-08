@@ -60,11 +60,13 @@ pub fn load_database(data: JsValue) {
     DATABASE.with(|database| {
         let mut database = database.borrow_mut();
 
-        *database = Some(IconsDataBase::open(VirtualFS::default()));
+        *database =
+            Some(IconsDataBase::open(VirtualFS::default()).unwrap_or_else(|_| unreachable!()));
     });
 }
 
 #[wasm_bindgen]
+#[must_use]
 pub fn pick_icon(icon_id: String) -> JsValue {
     ICONS.with(|icons| {
         let icons = icons.borrow();
@@ -82,7 +84,8 @@ pub struct SearchResult {
 }
 
 #[wasm_bindgen]
-pub fn query(message: String, limit: usize) -> JsValue {
+#[must_use]
+pub fn query(message: &str, limit: usize) -> JsValue {
     DATABASE.with(|database| {
         let database = database.borrow();
         let database = database.as_ref().unwrap();
@@ -92,13 +95,13 @@ pub fn query(message: String, limit: usize) -> JsValue {
         let reader = index.reader().unwrap();
         let searcher = reader.searcher();
 
-        let icon_state_name_field = database.get_field(IconsDataBaseField::IconStateName);
-        let icon_path_field = database.get_field(IconsDataBaseField::IconPath);
+        let icon_state_name_field = database.get_field(&IconsDataBaseField::IconStateName);
+        let icon_path_field = database.get_field(&IconsDataBaseField::IconPath);
 
         let query_parser =
             QueryParser::for_index(index, vec![icon_state_name_field, icon_path_field]);
 
-        let query = query_parser.parse_query(&message).unwrap();
+        let query = query_parser.parse_query(message).unwrap();
         let search_results = searcher
             .search(&query, &TopDocs::with_limit(limit))
             .unwrap();

@@ -21,3 +21,11 @@ pub enum UnpackError {
     #[error(transparent)]
     Generic(#[from] anyhow::Error),
 }
+
+#[derive(Error, Debug)]
+pub enum IconsDataBaseError {
+    #[error("{0}")]
+    TantivyError(#[from] tantivy::TantivyError),
+    #[error("{0}")]
+    OpenDirectoryError(#[from] tantivy::directory::error::OpenDirectoryError),
+}

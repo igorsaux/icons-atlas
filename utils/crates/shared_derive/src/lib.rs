@@ -1,10 +1,12 @@
+#![warn(clippy::all, clippy::pedantic)]
+
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, DeriveInput};
 
 macro_rules! crate_normalized {
     ( $name:ident ) => {
-        if std::env::var("CARGO_PKG_NAME").unwrap() == "shared" {
+        if std::env::var("CARGO_PKG_NAME").unwrap_or_else(|_| unreachable!()) == "shared" {
             quote! { crate }
         } else {
             quote! { $name }

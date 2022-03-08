@@ -12,7 +12,7 @@ use tantivy::{
     Directory, Index,
 };
 
-use crate::PackedFiles;
+use crate::{errors::IconsDataBaseError, PackedFiles};
 
 const ICON_STATE_NAME_FIELD: &str = "state";
 const ICON_PATH_FIELD: &str = "path";
@@ -43,46 +43,49 @@ pub struct IconsDataBase {
 
 impl IconsDataBase {
     #[cfg(not(target_family = "wasm"))]
-    pub fn create_in_folder(folder: impl AsRef<Path>) -> Self {
+    pub fn create_in_folder(folder: impl AsRef<Path>) -> Result<Self, IconsDataBaseError> {
         let schema = create_database_schema();
-        let directory = MmapDirectory::open(&folder).unwrap();
-        let index = Index::create(directory, schema.clone(), IndexSettings::default()).unwrap();
+        let directory = MmapDirectory::open(&folder)?;
+        let index = Index::create(directory, schema.clone(), IndexSettings::default())?;
 
-        Self {
+        Ok(Self {
             index,
             schema,
             folder: Some(folder.as_ref().to_owned()),
-        }
+        })
     }
 
-    pub fn open(directory: impl Directory) -> Self {
+    pub fn open(directory: impl Directory) -> Result<Self, IconsDataBaseError> {
         let schema = create_database_schema();
-        let index = Index::open(directory).unwrap();
+        let index = Index::open(directory)?;
 
-        Self {
+        Ok(Self {
             index,
             schema,
             #[cfg(not(target_family = "wasm"))]
             folder: None,
-        }
+        })
     }
 
+    #[must_use]
     pub fn index(&self) -> &Index {
         &self.index
     }
 
+    #[must_use]
     pub fn schema(&self) -> &Schema {
         &self.schema
     }
 
-    pub fn get_field(&self, field: IconsDataBaseField) -> Field {
+    #[must_use]
+    pub fn get_field(&self, field: &IconsDataBaseField) -> Field {
         let field = match field {
             IconsDataBaseField::IconStateName => self.schema.get_field(ICON_STATE_NAME_FIELD),
             IconsDataBaseField::IconPath => self.schema.get_field(ICON_PATH_FIELD),
             IconsDataBaseField::IconHashedId => self.schema.get_field(ICON_HASHED_ID_FIELD),
         };
 
-        field.unwrap()
+        field.unwrap_or_else(|| unreachable!())
     }
 
     #[cfg(not(target_family = "wasm"))]
@@ -109,6 +112,7 @@ impl IconsDataBase {
         };
     }
 
+    #[must_use]
     pub fn files(&self) -> PackedFiles {
         let directory = self.index.directory();
         let files = directory.list_managed_files();

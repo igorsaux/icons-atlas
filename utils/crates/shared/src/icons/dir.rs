@@ -4,12 +4,14 @@ use serde::{Deserialize, Serialize};
 pub struct Dir(u8);
 
 impl Dir {
+    #[must_use]
     pub fn dir(&self) -> u8 {
         self.0
     }
 }
 
 impl From<u8> for Dir {
+    #[must_use]
     fn from(dir: u8) -> Self {
         Self(dir)
     }

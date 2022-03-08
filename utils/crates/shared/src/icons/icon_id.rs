@@ -6,10 +6,12 @@ use serde::{Deserialize, Serialize};
 pub struct IconId(String);
 
 impl IconId {
+    #[must_use]
     pub fn new(id: String) -> Self {
         Self(id)
     }
 
+    #[must_use]
     pub fn id(&self) -> &str {
         &self.0
     }

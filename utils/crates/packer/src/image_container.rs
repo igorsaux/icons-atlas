@@ -7,48 +7,50 @@ use crate::base64::Base64;
 pub struct ImagesContainer(Vec<DynamicImage>);
 
 impl ImagesContainer {
+    #[must_use]
     pub fn new(images: Vec<DynamicImage>) -> Self {
         Self(images)
     }
 
+    #[must_use]
     pub fn images(&self) -> &[DynamicImage] {
         &self.0
     }
 
+    #[must_use]
     pub fn images_mut(&mut self) -> &mut Vec<DynamicImage> {
         &mut self.0
     }
 
+    #[must_use]
     pub fn is_gif(&self) -> bool {
         self.0.len() > 1
     }
 
+    #[must_use]
     pub fn to_bytes(&self) -> Vec<u8> {
         let mut content = Vec::new();
         let is_gif = self.is_gif();
 
-        match is_gif {
-            false => {
-                let image = &self.images()[0];
-                image
-                    .write_to(&mut content, ImageOutputFormat::Png)
-                    .unwrap();
-            }
-            true => {
-                let first_image = self.images()[0].to_rgba8();
-                let width = first_image.width() as u16;
-                let height = first_image.height() as u16;
-                let mut encoder = gif::Encoder::new(&mut content, width, height, &[]).unwrap();
-                encoder.set_repeat(gif::Repeat::Infinite).unwrap();
+        if is_gif {
+            let first_image = self.images()[0].to_rgba8();
+            let width = first_image.width() as u16;
+            let height = first_image.height() as u16;
+            let mut encoder = gif::Encoder::new(&mut content, width, height, &[]).unwrap();
+            encoder.set_repeat(gif::Repeat::Infinite).unwrap();
 
-                for image in self.images() {
-                    let mut frame =
-                        gif::Frame::from_rgba(width, height, &mut image.to_rgba8().to_vec());
-                    frame.dispose = gif::DisposalMethod::Background;
+            for image in self.images() {
+                let mut frame =
+                    gif::Frame::from_rgba(width, height, &mut image.to_rgba8().to_vec());
+                frame.dispose = gif::DisposalMethod::Background;
 
-                    encoder.write_frame(&frame).unwrap();
-                }
+                encoder.write_frame(&frame).unwrap();
             }
+        } else {
+            let image = &self.images()[0];
+            image
+                .write_to(&mut content, ImageOutputFormat::Png)
+                .unwrap();
         }
 
         content

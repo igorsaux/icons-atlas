@@ -6,7 +6,7 @@ use glob::glob;
 
 use packer::{Dmi, IconRecord};
 
-use shared::{IconsBundle, IconsDataBase, Pack, PackCompression};
+use shared::{IconsBundle, IconsDataBase, IconsDataBaseField, Pack, PackCompression};
 use tantivy::Document;
 
 const INDEX_FOLDER_PATH: &str = ".icons_atlas/";
@@ -17,15 +17,15 @@ fn populate_database(
 ) -> anyhow::Result<IconsDataBase> {
     std::fs::create_dir_all(&database_folder).context("Failed to create folders!")?;
 
-    let database = IconsDataBase::create_in_folder(database_folder);
+    let database = IconsDataBase::create_in_folder(database_folder)?;
     let mut writer = database
         .index()
         .writer(10_000_000)
         .context("Failed to create a writer!")?;
 
-    let icon_state_name_field = database.get_field(shared::IconsDataBaseField::IconStateName);
-    let icon_path_field = database.get_field(shared::IconsDataBaseField::IconPath);
-    let icon_hashed_id_field = database.get_field(shared::IconsDataBaseField::IconHashedId);
+    let icon_state_name_field = database.get_field(&IconsDataBaseField::IconStateName);
+    let icon_path_field = database.get_field(&IconsDataBaseField::IconPath);
+    let icon_hashed_id_field = database.get_field(&IconsDataBaseField::IconHashedId);
 
     for icon in icons {
         let mut icon_document = Document::default();

@@ -55,7 +55,7 @@ impl Directory for VirtualFS {
                 if !self.inner.exists(path).unwrap() {
                     self.inner
                         .atomic_write(path, database.get(path).unwrap())
-                        .unwrap()
+                        .unwrap();
                 }
 
                 return Ok(true);
