@@ -1,7 +1,6 @@
 .SearchEntry {
-  outline: #010101 solid 1px;
   border: 1px solid #535353;
-  border-radius: 10px;
+  border-radius: 6px;
   background-color: #282828;
   list-style: none;
 
@@ -20,7 +19,7 @@
   .Content {
     background-color: #373738;
     padding: 0.5rem;
-    border-radius: 10px 10px 0 0;
+    border-radius: 6px 6px 0 0;
   }
 
   hr {
