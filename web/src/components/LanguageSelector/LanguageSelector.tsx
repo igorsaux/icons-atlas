@@ -8,13 +8,13 @@ import { LanguageContext } from '@context'
 
 function LanguagesMenu() {
   const { setCode } = useContext(LanguageContext)
-  const $ = useTranslation()
+  const _ = useTranslation()
 
   return (
     <ul className='Languages'>
       {LANGUAGES.map(lang => (
         <li className='Language' onClick={() => setCode(lang.code)}>
-          <FlagIcon country={lang.country} /> <span>{$(lang.display)}</span>
+          <FlagIcon country={lang.country} /> <span>{_(lang.display)}</span>
         </li>
       ))}
     </ul>

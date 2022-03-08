@@ -7,14 +7,14 @@ type SearchInputProps = {
 }
 
 export default function SearchInput(props: SearchInputProps) {
-  const $ = useTranslation()
+  const _ = useTranslation()
   const { onQueryChange, isInvalid } = props
 
   return (
     <input
       onInput={event => onQueryChange(event.target?.value)}
       type='text'
-      placeholder={$('$SEARCH$')}
+      placeholder={_('$SEARCH$')}
       autoComplete='on'
       class={`SearchInput ${isInvalid ? 'Invalid' : ''}`}
     />

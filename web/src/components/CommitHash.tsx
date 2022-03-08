@@ -8,7 +8,7 @@ type CommitHashProps = {
 
 export default function CommitHash(props: CommitHashProps) {
   const [hash, setHash] = useState('')
-  const $ = useTranslation()
+  const _ = useTranslation()
 
   useEffect(() => {
     fetch(props.url)
@@ -18,7 +18,7 @@ export default function CommitHash(props: CommitHashProps) {
 
   return (
     <span className='CommitHash'>
-      {$('$LAST_COMMIT_HASH$')}{' '}
+      {_('$LAST_COMMIT_HASH$')}{' '}
       <a target='_blank' href={`${TARGET_REPOSITORY_COMMIT}/${hash}`}>
         {hash.substring(0, 7)}
       </a>

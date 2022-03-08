@@ -16,14 +16,14 @@ function getUrlToIconOnGithub(iconPath: string) {
 }
 
 export default function SearchEntry(props: SearchEntryProps) {
-  const $ = useTranslation()
+  const _ = useTranslation()
   const { queryResult } = props
 
   return (
     <div className='SearchEntry'>
       <div className='Content'>
         <a
-          title={$('$OPEN_ON_GITHUB$')}
+          title={_('$OPEN_ON_GITHUB$')}
           className='GithubMark'
           target='_blank'
           href={getUrlToIconOnGithub(queryResult.fields.path)}
@@ -31,10 +31,10 @@ export default function SearchEntry(props: SearchEntryProps) {
           <GitHubIcon />
         </a>
         <div className='IconState'>
-          <b>{$('$STATE$')}:</b> {queryResult.fields.state}
+          <b>{_('$STATE$')}:</b> {queryResult.fields.state}
         </div>
         <div className='IconPath'>
-          <b>{$('$PATH$')}:</b> {queryResult.fields.path}
+          <b>{_('$PATH$')}:</b> {queryResult.fields.path}
         </div>
       </div>
       <hr />
