@@ -5,12 +5,10 @@ import TRANSLATION from '../translation'
 export default function useTranslation() {
   const { code } = useContext(LanguageContext)
 
-  const _ = useCallback(
+  return useCallback(
     (localizationString: string) => {
       return TRANSLATION[code][localizationString] || localizationString
     },
     [code]
   )
-
-  return _
 }
