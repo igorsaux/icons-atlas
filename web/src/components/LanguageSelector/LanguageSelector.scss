@@ -1,15 +1,27 @@
+.LanguageSelector {
+  cursor: pointer;
+}
+
 .Languages {
   display: flex;
   margin: 0;
   padding: 0;
   flex-direction: column;
   align-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 5px;
 
   list-style: none;
 
   .Language {
+    transition: background-color 60ms linear;
+    padding: 5px;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: #0a84ff;
+      color: white;
+    }
   }
 }

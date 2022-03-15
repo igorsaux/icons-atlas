@@ -6,8 +6,6 @@ export type Translation = {
 
 export default {
   en: {
-    $LANGUAGE_EN$: 'English',
-    $LANGUAGE_RU$: 'Russian',
     $LOADING_RESOURCES$: 'Loading Resources',
     $LOADING$: 'Loading',
     $SEARCH$: 'Search',
@@ -30,8 +28,6 @@ export default {
     $LAST_COMMIT_HASH$: 'Commit:'
   },
   ru: {
-    $LANGUAGE_EN$: 'английский',
-    $LANGUAGE_RU$: 'русский',
     $LOADING_RESOURCES$: 'Загрузка ресурсов',
     $LOADING$: 'Загрузка',
     $SEARCH$: 'Поиск',

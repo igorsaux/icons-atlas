@@ -10,7 +10,7 @@ function HelpContent() {
   const _ = useTranslation()
 
   return (
-    <>
+    <div class='HelpContent'>
       <h3>{_('$HELP_PREFIXES_TITLE$')}</h3>
       {_('$HELP_PREFIXES_BODY1$')}{' '}
       <CodeInline>
@@ -69,7 +69,7 @@ function HelpContent() {
         {_('$HELP_DETAILS$')}
       </a>
       .
-    </>
+    </div>
   )
 }
 

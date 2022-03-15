@@ -12,12 +12,12 @@ export const TARGET_REPOSITORY_MAIN_BRANCH = `${TARGET_REPOSITORY}/blob/dev`
 export const LANGUAGES = [
   {
     country: 'us',
-    display: '$LANGUAGE_EN$',
+    display: 'English',
     code: 'en'
   },
   {
     country: 'ru',
-    display: '$LANGUAGE_RU$',
+    display: 'русский',
     code: 'ru'
   }
 ]
