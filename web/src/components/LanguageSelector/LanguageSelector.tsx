@@ -32,6 +32,8 @@ export default function LanguageSelector() {
       interactiveBorder={20}
       theme='dark'
       animation='scale'
+      hideOnClick={true}
+      trigger='click'
     >
       <FlagIcon class='LanguageSelector' country={countryFlag} />
     </Tippy>
